@@ -1,22 +1,35 @@
-div.container{
-    margin-top: 20px;
-
+div.container {
+  margin-top: 20px;
 }
 
-
-div.title h1, div.title p {
-    color: black;
-    text-shadow: 3px 3px 3px rgba(0, 0 , 0, 0.5);
+div.title h1,
+div.title p {
+  color: black;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 div.title {
-    padding: 2em ;
-    background-size: cover;
-    background-position: center center;
+  padding: 2em;
+  background-size: cover;
+  background-position: center center;
 }
 
-div.carousel-caption{
-    text-shadow: 3px 3px 3px rgba(0, 0 , 0, 0.5);
-    color: whitesmoke;
+div.carousel-caption {
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  color: whitesmoke;
+}
 
+.avatar {
+  max-width: 128 px;
+  max-height: 128 px;
+  border-radius: 50%;
+}
 
+.avatar-medium {
+  max-height: 64px;
+  max-width: 64px;
+}
+
+.avatar-mini {
+  max-height: 24px;
+  max-width: 24px;
 }

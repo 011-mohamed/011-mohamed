@@ -52,10 +52,14 @@ class AdController extends AbstractController
                 $manager->persist($image);
             }
 
+            $ad->setAuthor($this->getUser());
+
             //ObjectManager $manager marche pas  !!!
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($ad);
             $manager->flush();
+
+
 
             $this->addFlash(
                 'success',
