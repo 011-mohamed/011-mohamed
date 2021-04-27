@@ -7,6 +7,7 @@ use Faker;
 
 
 use App\Entity\Ad;
+use App\Entity\Role;
 use App\Entity\User;
 use App\Entity\Image;
 use Doctrine\Persistence\ObjectManager;
@@ -24,6 +25,24 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
+
+        $adminRole = new Role();
+        $adminRole->setTitle('ROLE_ADMIN');
+        $manager->persist($adminRole);
+
+          $adminUser = new User();
+          $adminUser->setFirstName('Khalil')
+                    ->setLastName('Salem')
+                    ->setEmail('khalil@symfony.com')
+                    ->setIntroduction($faker->sentence())
+                    ->setDescription('<p>'.( $faker-> paragraph(3)).'</p>')
+                    ->setHash($this->encoder->encodePassword($adminUser, 'password'))
+                    ->setPicture('https://randomuser.me/api/portraits/men/42.jpg')
+                    ->addUserRole($adminRole);
+
+            $manager->persist($adminUser);
+
+
        // gere des utilisateurs
             $users = []; 
             $genres = ['male' ,'female'];

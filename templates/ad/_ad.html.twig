@@ -21,7 +21,12 @@
 			<p class="card-text">
 				{{ ad.intoduction }}
 			</p>
-			<a href="{{url}}" class="btn btn-dark">en savoir plus</a>
+			<a href="{{url}}" class="btn btn-primary">en savoir plus</a>
+
+			{% if app.user and app.user==ad.author %}
+				<a href="{{path('ads_edit', {'slug':ad.slug} )}}" class="btn btn-secondry">Modifier l'annnonce</a>
+				
+			{% endif %}
 		</div>
 	</div>
 </div>
