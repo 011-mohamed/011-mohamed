@@ -87,6 +87,11 @@ class User implements UserInterface
      */
     private $userRoles;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="booker")
+     */
+    private $bookings;
+
 
      /**
      * Permet d'inititialiser le slug !
@@ -108,6 +113,7 @@ class User implements UserInterface
     {
         $this->ads = new ArrayCollection();
         $this->userRoles = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -290,6 +296,36 @@ class User implements UserInterface
     {
         if ($this->userRoles->removeElement($userRole)) {
             $userRole->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): self
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setBooker($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->removeElement($booking)) {
+            // set the owning side to null (unless already changed)
+            if ($booking->getBooker() === $this) {
+                $booking->setBooker(null);
+            }
         }
 
         return $this;

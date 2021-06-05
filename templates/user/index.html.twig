@@ -20,14 +20,24 @@
 					{{user.lastName}}</h1>
 				{% if user is same as(app.user) %}
 					<div class="mt-3">
-						<a href="{{ path('account_profile')}}" class="btn btn-primary mr-2 mb-2">
-							Modifier mes informations
-						</a>
-						<a href="{{path('account_password')}}" class="btn btn-primary mb-2">
-							Modifier mon mot de passe</a>
-						
-						<a href="{{path('ads_create')}}" class="btn btn-primary mb-2">Créer une annonce</a>
-						
+						<div class="row">
+							<div class="col">
+								<a href="{{ path('account_profile')}}" class="btn btn-primary mb-2">
+									Modifier mes informations
+							</a>
+							</div>
+							<div class="col">
+								<a href="{{path('account_password')}}" class="btn btn-primary mb-2">
+									Modifier mon mot de passe</a>
+							</div>
+							
+							<div class="col">
+								<a href="{{path('ads_create')}}" class="btn btn-primary mb-2">Créer une annonce</a>
+							</div>
+							<div class="col">
+								<a href="{{path('account_bookings')}}" class="btn btn-primary mb-2">Mes réservations</a>
+							</div>
+						</div>
 					</div>
 
 				{% endif %}

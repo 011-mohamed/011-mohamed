@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+{% block title %}Page  non trouvée
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<h1>T'a pas le droit de modifier cette annonce !</h1>
+		<div class="alert alert-danger">
+			<p>
+				Vous n'avez pas le droit d'acceder a cette ressource !
+			</p>
+		</div>
+
+		<a href="{{path ('homepage')}}" class="btn btn-primary">
+			Retour a l'acceuil</a>
+
+
+	</div>
+
+{% endblock %}
